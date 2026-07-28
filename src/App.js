@@ -15,73 +15,101 @@ import {
   Gift,
   LogIn,
   UserPlus,
-  LogOut
+  LogOut,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
-// --- TIERS WITH DIRECT IMAGE LINKS ---
+// --- TIERS WITH PAKISTANI MARKET PRODUCTS & MULTIPLE IMAGES ---
 const TIERS = [
   { 
     id: 'tier10', 
     name: 'Daily Relief', 
     amount: 10, 
-    reward: 'Mobile Recharge Coupon', 
+    reward: 'Jazz / Zong / Telenor Mobile Recharge', 
     rewardVal: 1000, 
     cycle: 'Daily', 
     color: 'bg-emerald-100 text-emerald-800',
-    // Mobile Scratch Card / Recharge Image
-    image: 'https://images.unsplash.com/photo-1556742049-0a670fc8077a?auto=format&fit=crop&w=600&q=80' 
+    // 4 Images for Pakistani Scratch Cards / Mobile Load
+    images: [
+      'https://images.unsplash.com/photo-1556742049-0a670fc8077a?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80',
+    ] 
   },
   { 
     id: 'tier50', 
     name: 'Weekly Support', 
     amount: 50, 
-    reward: 'Pedestal Fan / Kitchen Appliance', 
+    reward: 'Pak Fan / Royal Pedestal Fan & Appliances', 
     rewardVal: 5000, 
     cycle: '5 Days', 
     color: 'bg-emerald-200 text-emerald-900',
-    // Home Appliance / Electric Fan Image
-    image: 'https://images.unsplash.com/photo-1618953798485-a63525acee41?auto=format&fit=crop&w=600&q=80' 
+    // 4 Images for Fans & Kitchen Appliances in PK
+    images: [
+      'https://images.unsplash.com/photo-1618953798485-a63525acee41?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80',
+    ] 
   },
   { 
     id: 'tier100', 
     name: 'Fortnightly Aid', 
     amount: 100, 
-    reward: 'Smart Tablet / Mobile Phone', 
+    reward: 'Pakistani Market Smartphone / Tablet', 
     rewardVal: 10000, 
     cycle: '10 Days', 
     color: 'bg-emerald-300 text-emerald-900',
-    // Smartphone / Tablet Image
-    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80' 
+    // 4 Images for Android Phones & Tablets in PK
+    images: [
+      'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=600&q=80',
+    ] 
   },
   { 
     id: 'tier500', 
     name: 'Monthly Security', 
     amount: 500, 
-    reward: '32" Smart LED TV', 
+    reward: 'Dawlance / TCL 32" Smart LED TV', 
     rewardVal: 50000, 
     cycle: 'Monthly', 
     color: 'bg-amber-100 text-amber-800',
-    // LED TV Image
-    image: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80' 
+    // 4 Images for LED TVs & Home Entertainment
+    images: [
+      'https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1577975882846-431adc8c2009?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=600&q=80',
+    ] 
   },
   { 
     id: 'tier5000', 
     name: 'Grand Relief', 
     amount: 5000, 
-    reward: '125cc Motorbike / Solar Setup', 
+    reward: 'Honda CG 125 Motorbike / Solar Inverter', 
     rewardVal: 500000, 
     cycle: 'Bi-Monthly', 
     color: 'bg-amber-200 text-amber-900',
-    // Motorbike Image
-    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80' 
+    // 5 Images for Honda CG 125 Motorbike & Solar Systems in PK
+    images: [
+      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80',
+    ] 
   },
 ];
 
 const INITIAL_BENEFICIARIES = [
-  { id: 1, name: 'Ahmed Khan', city: 'Multan', tier: 'Rs. 100', prize: 'Smart Tablet', date: '27 Jul 2026', status: 'Delivered' },
-  { id: 2, name: 'Sara Ali', city: 'Bahawalpur', tier: 'Rs. 50', prize: 'Pedestal Fan', date: '26 Jul 2026', status: 'Delivered' },
-  { id: 3, name: 'Faisal Mehmood', city: 'Rahim Yar Khan', tier: 'Rs. 10', prize: 'Rs. 1000 Mobile Card', date: '26 Jul 2026', status: 'Delivered' },
-  { id: 4, name: 'Zainab Bibi', city: 'Dera Ghazi Khan', tier: 'Rs. 500', prize: '32" LED TV', date: '25 Jul 2026', status: 'Delivered' },
+  { id: 1, name: 'Ahmed Khan', city: 'Multan', tier: 'Rs. 100', prize: 'Android Smartphone', date: '27 Jul 2026', status: 'Delivered' },
+  { id: 2, name: 'Sara Ali', city: 'Bahawalpur', tier: 'Rs. 50', prize: 'Pak Pedestal Fan', date: '26 Jul 2026', status: 'Delivered' },
+  { id: 3, name: 'Faisal Mehmood', city: 'Rahim Yar Khan', tier: 'Rs. 10', prize: 'Rs. 1000 Jazz Load', date: '26 Jul 2026', status: 'Delivered' },
+  { id: 4, name: 'Zainab Bibi', city: 'Dera Ghazi Khan', tier: 'Rs. 500', prize: 'Dawlance 32" LED TV', date: '25 Jul 2026', status: 'Delivered' },
 ];
 
 // --- HELPER COMPONENTS ---
@@ -121,6 +149,50 @@ const Badge = ({ status }) => {
     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${styles[status] || "bg-slate-100 text-slate-600"}`}>
       {status}
     </span>
+  );
+};
+
+// --- IMAGE GALLERY SLIDER COMPONENT ---
+const ImageGallery = ({ images, title }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="relative h-52 overflow-hidden bg-slate-900 group">
+      <img 
+        src={images[currentIndex]} 
+        alt={`${title} - Photo ${currentIndex + 1}`} 
+        className="w-full h-full object-cover transition-all duration-500"
+      />
+      
+      {/* Slider Buttons */}
+      <button 
+        onClick={prevImage}
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-1.5 rounded-full transition-all opacity-80 group-hover:opacity-100"
+      >
+        <ChevronLeft className="w-4 h-4" />
+      </button>
+      <button 
+        onClick={nextImage}
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-1.5 rounded-full transition-all opacity-80 group-hover:opacity-100"
+      >
+        <ChevronRight className="w-4 h-4" />
+      </button>
+
+      {/* Image Counter Badge */}
+      <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-0.5 rounded text-[10px] font-medium backdrop-blur-sm">
+        {currentIndex + 1} / {images.length} Pics
+      </div>
+    </div>
   );
 };
 
@@ -331,30 +403,28 @@ export default function UserApp() {
       {/* Inamat Showcase Cards */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-slate-800">Support Tiers & Qemeti Inamat</h3>
-          <span className="text-xs text-slate-500">Select any tier to join</span>
+          <h3 className="text-xl font-bold text-slate-800">Pakistani Market Qemeti Inamat</h3>
+          <span className="text-xs text-slate-500">Use ◀ ▶ to view all pictures</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TIERS.map((tier) => (
             <Card key={tier.id} className="group hover:shadow-lg transition-all duration-300">
-              {/* Prize Image */}
-              <div className="relative h-48 overflow-hidden bg-slate-100">
-                <img 
-                  src={tier.image} 
-                  alt={tier.reward} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-extrabold text-slate-800 shadow-sm">
-                  Valued ~ Rs. {tier.rewardVal.toLocaleString()}
-                </div>
-                <div className={`absolute bottom-3 left-3 ${tier.color} px-3 py-1 rounded-lg text-xs font-bold`}>
-                  Tier: Rs. {tier.amount} ({tier.cycle})
-                </div>
-              </div>
+              
+              {/* Multi Image Carousel Slider */}
+              <ImageGallery images={tier.images} title={tier.reward} />
 
               {/* Card Details */}
               <div className="p-5 space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className={`px-2.5 py-1 rounded-md text-xs font-extrabold ${tier.color}`}>
+                    Tier: Rs. {tier.amount} ({tier.cycle})
+                  </span>
+                  <span className="text-xs font-bold text-slate-600">
+                    Worth: ~Rs. {tier.rewardVal.toLocaleString()}
+                  </span>
+                </div>
+
                 <h4 className="font-bold text-slate-800 text-lg leading-snug">{tier.reward}</h4>
                 <p className="text-xs text-slate-500">{tier.name} Cycle - Shamil hone ke liye sirf Rs. {tier.amount} ki contribution karein.</p>
                 
